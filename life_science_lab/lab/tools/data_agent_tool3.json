@@ -1,0 +1,142 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Compare Study Reports",
+    "version": "1.0.0",
+    "description": "Generates a detailed line-by-line comparison (unified diff) between Clinical Study Reports of two studies. Shows additions, deletions, and changes to identify variations and ensure consistency across submissions."
+  },
+  "servers": [
+    {
+      "url": "https://wx-regops-bk.1944johjccn7.eu-de.codeengine.appdomain.cloud",
+      "description": "RegOps AI Backend"
+    }
+  ],
+  "paths": {
+    "/compare/csr": {
+      "get": {
+        "operationId": "data_agent_tool3",
+        "summary": "Compare CSRs from two studies",
+        "description": "Compares Clinical Study Reports between two studies and returns a unified diff showing all differences. Automatically generates reports if they don't exist. Lines starting with + are additions, - are deletions, @@ show location of changes.",
+        "parameters": [
+          {
+            "name": "study_id_a",
+            "in": "query",
+            "description": "First study ID to compare (e.g., STUDY-001)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^STUDY-\\d{3}$",
+              "example": "STUDY-001"
+            }
+          },
+          {
+            "name": "study_id_b",
+            "in": "query",
+            "description": "Second study ID to compare (e.g., STUDY-002)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^STUDY-\\d{3}$",
+              "example": "STUDY-002"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comparison completed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "a_url": {
+                      "type": "string",
+                      "example": "/artifacts/STUDY-001_csr.md",
+                      "description": "URL to access first study's CSR document"
+                    },
+                    "b_url": {
+                      "type": "string",
+                      "example": "/artifacts/STUDY-002_csr.md",
+                      "description": "URL to access second study's CSR document"
+                    },
+                    "diff": {
+                      "type": "string",
+                      "description": "Unified diff format showing all differences. Lines starting with - are from study A (removed), + are from study B (added), @@ show the line numbers where changes occur",
+                      "example": "--- STUDY-001_csr.md\n+++ STUDY-002_csr.md\n@@ -1,13 +1,13 @@\n # Clinical Study Report (Mock)\n \n ## 1. Synopsis\n-Study ID: STUDY-001\n+Study ID: STUDY-002\n Population: ITT\n \n Primary Endpoint: A1C change from baseline\n-Result: -1.183 %\n+Result: -1.203 %\n \n-(95% CI -1.271–-1.095), p=0.0\n+(95% CI -1.291–-1.116), p=0.0"
+                    }
+                  }
+                },
+                "examples": {
+                  "comparison_with_differences": {
+                    "summary": "Comparison showing differences",
+                    "value": {
+                      "a_url": "/artifacts/STUDY-001_csr.md",
+                      "b_url": "/artifacts/STUDY-002_csr.md",
+                      "diff": "--- STUDY-001_csr.md\n+++ STUDY-002_csr.md\n@@ -1,5 +1,5 @@\n # Clinical Study Report (Mock)\n \n ## 1. Synopsis\n-Study ID: STUDY-001\n+Study ID: STUDY-002\n Population: ITT"
+                    }
+                  },
+                  "identical_reports": {
+                    "summary": "No differences found",
+                    "value": {
+                      "a_url": "/artifacts/STUDY-001_csr.md",
+                      "b_url": "/artifacts/STUDY-001_csr.md",
+                      "diff": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request - missing or malformed study IDs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Both study_id_a and study_id_b are required"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "One or both study reports not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "CSR artifacts not found for one or both studies. Reports may need to be generated first."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error during comparison",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Failed to generate diff: File read error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

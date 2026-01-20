@@ -1,0 +1,215 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Generate Clinical Study Report",
+    "version": "1.0.0",
+    "description": "Generates complete Clinical Study Report (CSR) and Clinical Overview documents for a specified study. Uses AI to draft comprehensive regulatory documents with full compliance checking and data traceability."
+  },
+  "servers": [
+    {
+      "url": "https://wx-regops-bk.1944johjccn7.eu-de.codeengine.appdomain.cloud",
+      "description": "RegOps AI Backend"
+    }
+  ],
+  "paths": {
+    "/jobs/run": {
+      "post": {
+        "operationId": "data_agent_tool1",
+        "summary": "Generate CSR and Clinical Overview documents",
+        "description": "Creates both Clinical Study Report and Clinical Overview (Module 2.5) for the specified study. AI agent retrieves data, drafts documents, performs compliance checks, validates consistency, and generates artifacts with full audit trail. Processing typically takes 10-30 seconds.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["study_id", "type"],
+                "properties": {
+                  "study_id": {
+                    "type": "string",
+                    "description": "Study identifier (e.g., STUDY-001, STUDY-002)",
+                    "example": "STUDY-001",
+                    "pattern": "^STUDY-\\d{3}$"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Report type - always use 'csr' to generate both CSR and overview",
+                    "enum": ["csr"],
+                    "default": "csr",
+                    "example": "csr"
+                  }
+                }
+              },
+              "examples": {
+                "generate_study_001": {
+                  "summary": "Generate reports for STUDY-001",
+                  "value": {
+                    "study_id": "STUDY-001",
+                    "type": "csr"
+                  }
+                },
+                "generate_study_002": {
+                  "summary": "Generate reports for STUDY-002",
+                  "value": {
+                    "study_id": "STUDY-002",
+                    "type": "csr"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Documents generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "study_id": {
+                      "type": "string",
+                      "example": "STUDY-001",
+                      "description": "Study ID for which reports were generated"
+                    },
+                    "artifacts": {
+                      "type": "object",
+                      "description": "Paths to generated documents",
+                      "properties": {
+                        "csr_markdown": {
+                          "type": "string",
+                          "example": "artifacts/STUDY-001_csr.md",
+                          "description": "Path to Clinical Study Report markdown file"
+                        },
+                        "overview_markdown": {
+                          "type": "string",
+                          "example": "artifacts/STUDY-001_overview.md",
+                          "description": "Path to Clinical Overview markdown file"
+                        },
+                        "audit": {
+                          "type": "string",
+                          "example": "artifacts/STUDY-001_audit.json",
+                          "description": "Path to audit trail JSON file"
+                        }
+                      }
+                    },
+                    "compliance": {
+                      "type": "object",
+                      "description": "Compliance check results",
+                      "properties": {
+                        "status": {
+                          "type": "string",
+                          "enum": ["pass", "fail"],
+                          "example": "pass",
+                          "description": "Overall compliance status"
+                        },
+                        "rules": {
+                          "type": "array",
+                          "description": "List of compliance rules checked",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "rule": {
+                                "type": "string",
+                                "example": "CI_present",
+                                "description": "Rule identifier"
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": ["pass", "fail", "warn"],
+                                "example": "pass"
+                              },
+                              "msg": {
+                                "type": "string",
+                                "example": "Confidence intervals properly documented",
+                                "description": "Human-readable rule result"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "consistency": {
+                      "type": "object",
+                      "description": "Data consistency validation results",
+                      "properties": {
+                        "status": {
+                          "type": "string",
+                          "enum": ["pass", "fail"],
+                          "example": "pass",
+                          "description": "Overall consistency status"
+                        },
+                        "notes": {
+                          "type": "array",
+                          "description": "List of consistency issues found (empty if pass)",
+                          "items": {
+                            "type": "string"
+                          },
+                          "example": []
+                        }
+                      }
+                    },
+                    "audit_len": {
+                      "type": "integer",
+                      "example": 6,
+                      "description": "Number of processing steps in audit trail"
+                    }
+                  }
+                },
+                "examples": {
+                  "successful_generation": {
+                    "summary": "Successful report generation",
+                    "value": {
+                      "study_id": "STUDY-001",
+                      "artifacts": {
+                        "csr_markdown": "artifacts/STUDY-001_csr.md",
+                        "overview_markdown": "artifacts/STUDY-001_overview.md",
+                        "audit": "artifacts/STUDY-001_audit.json"
+                      },
+                      "compliance": {
+                        "status": "pass",
+                        "rules": [
+                          {
+                            "rule": "CI_present",
+                            "status": "pass",
+                            "msg": "Confidence intervals present"
+                          },
+                          {
+                            "rule": "p_value_present",
+                            "status": "pass",
+                            "msg": "P-values documented"
+                          }
+                        ]
+                      },
+                      "consistency": {
+                        "status": "pass",
+                        "notes": []
+                      },
+                      "audit_len": 6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error during report generation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Failed to generate report: Database connection error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

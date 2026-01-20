@@ -1,0 +1,189 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Get Study Metrics",
+    "version": "1.0.0",
+    "description": "Retrieves comprehensive data quality and count metrics for a specified clinical study including patient counts, visit data, adverse events, and quality coverage percentages."
+  },
+  "servers": [
+    {
+      "url": "https://wx-regops-bk.1944johjccn7.eu-de.codeengine.appdomain.cloud",
+      "description": "RegOps AI Backend"
+    }
+  ],
+  "paths": {
+    "/metrics/{study_id}": {
+      "get": {
+        "operationId": "data_agent_tool2",
+        "summary": "Get comprehensive study metrics",
+        "description": "Returns data counts (patients, visits, AEs, conmeds, PK samples) and quality metrics (CI coverage, unit coverage, CMC in-spec percentage) for the specified study. Useful for data quality assessment and portfolio monitoring.",
+        "parameters": [
+          {
+            "name": "study_id",
+            "in": "path",
+            "description": "Study identifier (e.g., STUDY-001, STUDY-002, STUDY-003, STUDY-004, STUDY-005)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^STUDY-\\d{3}$",
+              "example": "STUDY-001"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Study metrics retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "counts": {
+                      "type": "object",
+                      "description": "Data counts across various study components",
+                      "properties": {
+                        "patients": {
+                          "type": "integer",
+                          "example": 1000,
+                          "description": "Total number of patients enrolled"
+                        },
+                        "visits": {
+                          "type": "integer",
+                          "example": 4000,
+                          "description": "Total number of study visits completed"
+                        },
+                        "adverse_events": {
+                          "type": "integer",
+                          "example": 245,
+                          "description": "Total adverse events reported"
+                        },
+                        "conmeds": {
+                          "type": "integer",
+                          "example": 612,
+                          "description": "Total concomitant medications recorded"
+                        },
+                        "pk_samples": {
+                          "type": "integer",
+                          "example": 150,
+                          "description": "Total pharmacokinetic samples collected"
+                        }
+                      }
+                    },
+                    "coverage": {
+                      "type": "object",
+                      "description": "Data quality coverage metrics (0.0 to 1.0)",
+                      "properties": {
+                        "ci_coverage": {
+                          "type": "number",
+                          "format": "float",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "example": 0.942,
+                          "description": "Percentage of endpoints with confidence intervals (0.0-1.0). >0.95 is excellent, 0.85-0.95 is good, <0.85 needs review"
+                        },
+                        "unit_coverage": {
+                          "type": "number",
+                          "format": "float",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "example": 0.978,
+                          "description": "Percentage of endpoints with units specified (0.0-1.0). >0.98 is excellent, 0.90-0.98 is acceptable, <0.90 is poor"
+                        }
+                      }
+                    },
+                    "cmc": {
+                      "type": "object",
+                      "description": "Chemistry, Manufacturing, and Controls quality metrics",
+                      "properties": {
+                        "in_spec_pct": {
+                          "type": "number",
+                          "format": "float",
+                          "minimum": 0,
+                          "maximum": 1,
+                          "example": 0.968,
+                          "description": "Percentage of CMC attributes within specification limits (0.0-1.0). >0.95 is excellent, 0.85-0.95 is acceptable, <0.85 needs investigation"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "study_001_metrics": {
+                    "summary": "STUDY-001 metrics",
+                    "value": {
+                      "counts": {
+                        "patients": 1000,
+                        "visits": 4000,
+                        "adverse_events": 245,
+                        "conmeds": 612,
+                        "pk_samples": 150
+                      },
+                      "coverage": {
+                        "ci_coverage": 0.942,
+                        "unit_coverage": 0.978
+                      },
+                      "cmc": {
+                        "in_spec_pct": 0.968
+                      }
+                    }
+                  },
+                  "study_with_quality_issues": {
+                    "summary": "Study with quality issues",
+                    "value": {
+                      "counts": {
+                        "patients": 800,
+                        "visits": 3200,
+                        "adverse_events": 189,
+                        "conmeds": 498,
+                        "pk_samples": 120
+                      },
+                      "coverage": {
+                        "ci_coverage": 0.823,
+                        "unit_coverage": 0.891
+                      },
+                      "cmc": {
+                        "in_spec_pct": 0.812
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Study not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Study STUDY-999 not found in database"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Database connection failed"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
