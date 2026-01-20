@@ -10,15 +10,11 @@ This LAB walks you through setting up an agentic AI in life sciences system with
 
 ## Step 1: Connect to the Watsonx Orchestrate Trial instance 
 
-1. Navigate to IBM Cloud page: https://cloud.ibm.com/resources and click on the link "AI / Machine Learning"
 
-2. Select. Watsonx Orchestrate and Click launch to access the trial instance.
+1. Click `IBM watsonx Orchestrate` in the email you recieved from `Watson.Orchestrate@ibm.com` and login with the IBM ID you created. 
    
-   ![Create New Agent](../images/1111.png)
+   ![Create New Agent](../images/Screenshot2026-01-20at17.18.48.png)
    
-   ![Create New Agent](../images/2222.png)
-
-> Note: You can also login to trial instance from the login link received in your email from IBM TechZone
 
 ## Step 2: Create the AI Agent - Compliance Agent
 
@@ -28,7 +24,7 @@ This LAB walks you through setting up an agentic AI in life sciences system with
 
 2. Select "Create from scratch" option
 
-3. Enter Name as `Clara - Compliance Agent` + `your group name or your initials`. Ask your instructor how you should name your agents.
+3. Enter Name as `Clara - Compliance Agent` + `your initials`. Ask your instructor how you should name your agents.
 
 4. Add this description:
 
@@ -73,7 +69,7 @@ Prevents costly submission rejections by catching regulatory issues before filin
 
   ![Create New Agent](../images/Screenshot2026-01-14at09.52.49.png)
 
-- Add the `Regulatory Requirements Knowledge - FDA, EMA, ICH standards`knowledge source to the `Clara - Compliance Agent`.
+- Add the `Regulatory Requirements Knowledge - FDA, EMA, ICH standards` knowledge source to the `Clara - Compliance Agent`.
 
   ![Create New Agent](../images/Screenshot2026-01-14at10.02.21.png)
 
@@ -138,7 +134,7 @@ It should look like this when you have added the three tools:
 
 2. Select "Create from scratch" option
 
-3. Enter Name as `Clara - Data Agent` + `Your initials or group name`
+3. Enter Name as `Clara - Data Agent` + `Your initials`
 
 4. Add this description:
 
@@ -202,7 +198,7 @@ Eliminates manual data extraction and report generation. Retrieves data in secon
 
 1. To create a new agent, press `Manage agents` in the top left corner of the interface. Then press `Create agent`.
 2. Select "Create from scratch" option
-3. Enter Name as `Clara - Reasoning Agent` + `Your initials or group name`
+3. Enter Name as `Clara - Reasoning Agent` + `your initials`
 4. Add this description:
 
 ```
@@ -256,7 +252,7 @@ Transforms raw compliance and metrics data into strategic insights for leadershi
 
 1. To create a new agent, press `Manage agents` in the top left corner of the interface. Then press `Create agent`.
 2. Select "Create from scratch" option
-3. Enter Name as `CLARA (Main)` + `your group name or your initials`.
+3. Enter Name as `CLARA (Main)` + `your initials`.
 4. Add this description:
 
 ```
@@ -332,9 +328,7 @@ Transforms regulatory operations from manual, weeks-long processes into intellig
 
 ![Test Agent](../images/Screenshot2026-01-19at10.07.02.png)
 
-
 - Press `Chat`
-
 
 ![Test Agent](../images/Screenshot2026-01-19at10.08.12.png)
 
@@ -343,12 +337,9 @@ Transforms regulatory operations from manual, weeks-long processes into intellig
 ![Test Agent](../images/Screenshot2026-01-19at10.09.13.png)
 
 
-
 ## Using the AI Agent
 
 After deploying agents, use these prompts to test the complete flow:
-
-![Add Collaborator Agent](../images/23.png)
 
 ![Add Collaborator Agent](../images/24.png)
 
