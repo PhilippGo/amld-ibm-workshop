@@ -29,37 +29,27 @@ Powered by Agentic AI and watsonx Orchestrate, this solution enables the creatio
 Customers can initiate a claim by answering a few guided questions, even with minimal initial information. From there, the agentic system orchestrates the full claims workflow—automatically handling document generation, data extraction, and verification. This ensures a fast, accurate, and user-friendly experience, with real-time claim status updates that enhance transparency and customer satisfaction.
 
 For insurers, incoming claims are automatically retrieved and intelligently cross-verified against policy documents. The system extracts critical data and evaluates it against business rules and regulatory standards, generating structured recommendations for claim approval or denial. While final decisions remain with the insurer, each recommendation is backed by a clear, concise summary of all supporting details—minimizing errors and enabling faster, more informed decision-making.
-## Architecture
 
-![Architecture](./screenshots_hands_on_lab/Autoclaims_Insurance_Architecture_v5.png)
+# Implementation
 
-## Implementation
+## Connect to the Watsonx Orchestrate Trial instance 
 
-### Open Agent Builder in Watsonx Orchestrate 
+1. Click `IBM watsonx Orchestrate` in the email you recieved from `Watson.Orchestrate@ibm.com` and login with the IBM ID you created. 
 
-
-
-1. Navigate to IBM Cloud page: https://cloud.ibm.com/resources and click on the link "AI / Machine Learning"
-
-2. Select. Watsonx Orchestrate and Click launch to access the trial instance.
-   
-   ![Create New Agent](./screenshots_hands_on_lab/1111.png)
-   
-   ![Create New Agent](./screenshots_hands_on_lab/2222.png)
-
-> Note: You can also login to trial instance from the login link received in your email from IBM TechZone
+<img width="1000" alt="image" src="./screenshots_hands_on_lab/image2.png">
+  
 
 ### Information Agent
 #### Create the Information Agent
 
-- Click on **Create Agent**
+- Click on **Create new agent**
 
-  <img width="1000" alt="image" src="./screenshots_hands_on_lab/information-agent/0.png">
+ <img width="1000" alt="image" src="./screenshots_hands_on_lab/3333.png">
 
 - Follow the steps according to the screenshot below.
   - Select **Create from scratch**
-  - Name the agent `information_agent + your initals or group number`. 
-    - Example: `information_agent (Group 1)` or `information_agent (TB)`. Ask your instructor how you should name each agent.
+  - Name the agent `information_agent + your initals`. 
+    - Example: `information_agent (TB)`. Ask your instructor how you should name each agent.
   - Use the following description:
     ```
     The Information agent will fetch the news and different articles and use this information to summarize results and share.
@@ -123,7 +113,7 @@ For insurers, incoming claims are automatically retrieved and intelligently cros
 
 - Follow the steps according the screenshot below
   - Select **Create from scratch**
-  - Name the agent `customer_claims_agent + your initials or group name` as before.
+  - Name the agent `customer_claims_agent + your initials` as before.
   - Use the following description:
     ```
     The Customer Claims agent will allow customers to query the status of their claim request and create a new claim request. You will also answer questions based on the claim process and insurance policy using the knowledge base.
@@ -292,7 +282,7 @@ You can create additional claims for your assigned name to test the next agent.
 
 - Follow the steps according the screenshot below.
   - Select **Create from scratch**
-  - Name the agent `claim_processor_insurance_agent + group name or your initials.`
+  - Name the agent `claim_processor_insurance_agent + your initials.`
   - Use the following description:
 
     ```
@@ -426,7 +416,7 @@ You can create additional claims for your assigned name to test the next agent.
 
 - Follow the steps according the screenshot below.
   - Select **Create from scratch**
-  - Name the agent `Supervisor Agent + group name or your initials`
+  - Name the agent `Supervisor Agent + your initials`
   - Use the following description:
 
     ```
@@ -447,7 +437,7 @@ You can create additional claims for your assigned name to test the next agent.
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/supervisor_agent/sa_4.png">
 
-- Add the `customer_claims_agent` and `claim_processor_insurance_agent`. Select the agents with your initials or group name you made before. Click on `Add to agent`.
+- Add the `customer_claims_agent` and `claim_processor_insurance_agent`. Select the agents with your initials you made before. Click on `Add to agent`.
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/supervisor_agent/sa_8.png">
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/supervisor_agent/sa_9.png">

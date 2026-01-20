@@ -10,7 +10,6 @@ This LAB walks you through setting up an agentic AI in life sciences system with
 
 ## Step 1: Connect to the Watsonx Orchestrate Trial instance 
 
-
 1. Click `IBM watsonx Orchestrate` in the email you recieved from `Watson.Orchestrate@ibm.com` and login with the IBM ID you created. 
    
    ![Create New Agent](../images/Screenshot2026-01-20at17.18.48.png)
@@ -18,7 +17,7 @@ This LAB walks you through setting up an agentic AI in life sciences system with
 
 ## Step 2: Create the AI Agent - Compliance Agent
 
-1. Click "Create new agent" link in the bottom
+1. Click "Create new agent"
    
   ![Create New Agent](../images/3333.png)
 
