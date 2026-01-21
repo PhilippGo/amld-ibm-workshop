@@ -59,6 +59,6 @@ ABC Insurance Agency is a pioneer in Auto-insurance. While ABC Insurance has lon
 
 ---
 
-## 📝 Hands-on step-by-step lab
+## 👩‍💻 User Journey
 
-Please find the step-by-step instructions [Hands-on Lab](./assets/hands_on_lab_autoclaim_insurance.md) on how you can implement this use case.
+To begin the lab, please first view the [User Journey](./USER_JOURNEY.md).

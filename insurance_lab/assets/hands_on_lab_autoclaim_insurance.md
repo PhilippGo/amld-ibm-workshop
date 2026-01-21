@@ -545,3 +545,9 @@ Then select the agent to test:
 
 <img width="1000" alt="image" src="./screenshots_hands_on_lab/40.png">
 <img width="1000" alt="image" src="./screenshots_hands_on_lab/deploy/ai_chat_20.png">
+
+
+### Agentic AI Planning Canvas
+
+Please continue to the [Agentic AI Canvas](./Agentic-AI-Canvas-empty.pdf) to plan your own agent.
+

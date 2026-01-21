@@ -356,3 +356,9 @@ After deploying agents, use these prompts to test the complete flow:
 2. Why does STUDY-001 have better quality than STUDY-003?
 3. Show me only the number of patients included int the STUDY-003
 
+### Agentic AI Planning Canvas
+
+Please continue to the [Agentic AI Canvas](./Agentic-AI-Canvas-empty.pdf) to plan your own agent.
+
+
+

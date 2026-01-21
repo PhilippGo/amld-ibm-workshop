@@ -101,6 +101,10 @@ This bootcamp is powered by:
 - **watsonx Orchestrate** for agentic AI workflows in human conversation
 - **CLARA**: Clinical and Laboratory AI for Regulatory Affairs
 
-## 📝 Hands-on step-by-step lab
+## 🏛 Architecture
 
-Please find the step-by-step instructions [Hands-on Lab](./lab/README.md) on how you can implement this use case.
+![Architecture](./images/life_science_architecture.png)
+
+## 👩‍💻 User Journey
+
+To begin the lab, please first view the user journey [user journey](./USER_JOURNEY.md).
