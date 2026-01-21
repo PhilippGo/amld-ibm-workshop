@@ -2,25 +2,15 @@
 
 ## Table of Contents
 
-- [Automate Insurance Claim Processing with Agentic AI](#automate-insurance-claim-processing-with-agentic-ai)
-  - [Table of Contents](#table-of-contents)
-  - [Use case description](#use-case-description)
-  - [Architecture](#architecture)
-  - [Implementation](#implementation)
-    - [Pre-requisites](#pre-requisites)
-    - [Open Agent Builder](#open-agent-builder)
-    - [Information Agent](#information-agent)
-      - [Create the Information Agent](#create-the-information-agent)
-      - [Test the Information Agent](#test-the-information-agent)
-    - [Customer Claims Agent](#customer-claims-agent)
-      - [Create the Customer Claims Agent](#create-the-customer-claims-agent)
-      - [Test the Customer Claims Agent](#test-the-customer-claims-agent)
-    - [Claim Processor Agent](#claim-processor-agent)
-      - [Create the Claim Processor Agent](#create-the-claim-processor-agent)
-      - [Test the Claim Processor Agent](#test-the-claim-processor-agent)
-    - [Supervisor Agent](#supervisor-agent)
-      - [Create the Supervisor Agent](#create-the-supervisor-agent)
-    - [Further testing via AI Chat](#further-testing-via-ai-chat)
+- [Automate Insurance Claim Processing with Agentic AI](#automate-insurance-claim-processing-withion
+  - [Implementation    - [Connect to the Watsonx Orchestrate Trial instance](#connect-to-the-watson      - Create the Information Agent
+      - [Test the Information Agent](# - Customer Claims Agent
+      - [Create the Customer Claims Agent](#create-the the CustomerClaims Agent
+    - Claim Processor Agent
+      - [Create the Claim Processor Agent](#create-the-claim-aim ProcessorAgent
+    - Supervisor Agent
+      - [Create the Supervisor Agent    - [Further testing via AI Chat](#further-testing-via-ai-chatvas](#agentic-ai-planning-canvas
+
 
 ## Use case description
 
