@@ -1,17 +1,5 @@
 # Automate Insurance Claim Processing with Agentic AI
 
-## Table of Contents
-
-- [Automate Insurance Claim Processing with Agentic AI](#automate-insurance-claim-processing-withion
-  - [Implementation    - [Connect to the Watsonx Orchestrate Trial instance](#connect-to-the-watson      - Create the Information Agent
-      - [Test the Information Agent](# - Customer Claims Agent
-      - [Create the Customer Claims Agent](#create-the the CustomerClaims Agent
-    - Claim Processor Agent
-      - [Create the Claim Processor Agent](#create-the-claim-aim ProcessorAgent
-    - Supervisor Agent
-      - [Create the Supervisor Agent    - [Further testing via AI Chat](#further-testing-via-ai-chatvas](#agentic-ai-planning-canvas
-
-
 ## Use case description
 
 Powered by Agentic AI and watsonx Orchestrate, this solution enables the creation of an intelligent, agent-driven system that transforms and streamlines the entire claims process. It simplifies claim submission for customers while equipping insurers with automation to reduce manual effort and accelerate processing times.
