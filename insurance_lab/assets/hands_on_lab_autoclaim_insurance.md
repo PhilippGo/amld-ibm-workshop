@@ -65,7 +65,7 @@ For insurers, incoming claims are automatically retrieved and intelligently cros
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/information-agent/3-ia.png">
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/information-agent/4-ia.png">
 
-- Under the **Toolset** section, click on the **Add tool** button to upload the OpenAPI Spec
+- Under the **Toolset** section, click on the **Add tool** button.
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/information-agent/ia_tool_1.png">
 
 - Click on **Local instance**.
