@@ -269,7 +269,7 @@ You can create additional claims for your assigned name to test the next agent.
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/claim_processor_insurance_agent/cp-1.png">
 
-- Select the `model`.
+- Select the llama `model` (ignore that is deprecated).
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/claim_processor_insurance_agent/cp-2.png">
 
@@ -394,22 +394,20 @@ You can create additional claims for your assigned name to test the next agent.
 
 - Follow the steps according the screenshot below.
   - Select **Create from scratch**
-  - Name the agent `Supervisor Agent + your initials`
+  - Name the agent `supervisor_agent + your initials`
   - Use the following description:
 
     ```
-    The supervisor_insurance agent will act as an supervisor and depending on the query will pass the query to respective agents for processing. This agent will have two agents, customer_claims_agent, that will allow user to submit a new claim, check their claim status and ask information about insurance and claim process. The other agent is the claim_processor_insurance_agent that will allow the claim processor to view all the top open claims using a customer id, if there are multiple claims for a customer, it will allow the claim processor to select using the claim number. The claim processor can accept or reject the claims based on the suggestion made by the agent. 
+    The supervisor agent will act as an supervisor and depending on the query will pass the query to respective agents for processing. This agent will have two agents, customer_claims_agent, that will allow user to submit a new claim, check their claim status and ask information about insurance and claim process. The other agent is the claim_processor_insurance_agent that will allow the claim processor to view all the top open claims using a customer id, if there are multiple claims for a customer, it will allow the claim processor to select using the claim number. The claim processor can accept or reject the claims based on the suggestion made by the agent. 
     ```
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/supervisor_agent/sa_1.png">
 
-- Select the `model`.
+- Select the llama `model`.
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/supervisor_agent/sa_2.png">
 
-- Select the Agent Style as `Default`. Also no changes needed for Voice Modality. Keep it as No Voice Configuration
-
-  <img width="1000" alt="image" src="./screenshots_hands_on_lab/supervisor_agent/sa_3.png">
+- For this more complex agent select the Agent Style as `ReAct`. Also no changes needed for Voice Modality. Keep it as No Voice Configuration
 
 - Click on `Add agent`. 
 
