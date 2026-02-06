@@ -280,9 +280,6 @@ You can create additional claims for your assigned name to test the next agent.
 
 - In the **Knowledge** section, add the `Policy` knowledge base to agent.
 
-<img width="1000" alt="image" src="./screenshots_hands_on_lab/claim_processor_insurance_agent/cp-5.0.png">
-
-
 - In the **Toolset** section, click on **Add tool**
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/claim_processor_insurance_agent/cp-6.0.png">
