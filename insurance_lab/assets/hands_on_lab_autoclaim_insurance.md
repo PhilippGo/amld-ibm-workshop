@@ -99,7 +99,7 @@ For insurers, incoming claims are automatically retrieved and intelligently cros
     <img width="1000" alt="image" src="./screenshots_hands_on_lab/customer/customer-1.png">
   - Click **Create**
 
-- Choose `Model`. Change the model or keep it as the default one.
+- Choose `Model`. Choose the llama model. Ignore the deprecation notice.
 
 <img width="1000" alt="image" src="./screenshots_hands_on_lab/customer/customer-2.png">
 
