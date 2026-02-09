@@ -57,6 +57,8 @@ For insurers, incoming claims are automatically retrieved and intelligently cros
 - Go to the **Behavior** section. Add the following for **Instructions**. This will define how the Agent should behave and what it should expect:
   ```
   The Information Agent will use the tool to search for information and return a summarized result.
+
+  IMPORTANT: If invoked by a supervisor, you must transfer control back to the supervisor agent after task completion.
   ```
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/information-agent/12-ia.png">
 
@@ -99,7 +101,7 @@ For insurers, incoming claims are automatically retrieved and intelligently cros
     <img width="1000" alt="image" src="./screenshots_hands_on_lab/customer/customer-1.png">
   - Click **Create**
 
-- Choose `Model`. Choose the llama model. Ignore the deprecation notice.
+- Choose the GPT `model`.
 
 <img width="1000" alt="image" src="./screenshots_hands_on_lab/customer/customer-2.png">
 
@@ -174,6 +176,8 @@ For insurers, incoming claims are automatically retrieved and intelligently cros
   Refer to the “Automobile Insurance Knowledge Base.pdf” knowledge base only. If the answer is not in the knowledge base, reply: “I don’t know.”
 
   Do not reference the knowledge base while interacting with tools.
+
+  IMPORTANT: If invoked by a supervisor, you must transfer control back to the supervisor agent after task completion.
   ```
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/customer/customer-15.png">
 
@@ -269,7 +273,7 @@ You can create additional claims for your assigned name to test the next agent.
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/claim_processor_insurance_agent/cp-1.png">
 
-- Select the llama `model` (ignore that is deprecated).
+- Select the GPT `model`.
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/claim_processor_insurance_agent/cp-2.png">
 
@@ -335,6 +339,8 @@ You can create additional claims for your assigned name to test the next agent.
   Do not give next steps. 
 
   Once a decision is made, update the claim status and send a message confirming that emails have been sent to the customer and finance team.
+
+  IMPORTANT: If invoked by a supervisor, you must transfer control back to the supervisor agent after task completion.
   ```
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/claim_processor_insurance_agent/cp-15.png">
