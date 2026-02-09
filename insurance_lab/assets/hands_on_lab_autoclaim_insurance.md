@@ -400,7 +400,7 @@ You can create additional claims for your assigned name to test the next agent.
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/supervisor_agent/sa_1.png">
 
-- Select the llama `model`.
+- Select the GPT `model`.
 
   <img width="1000" alt="image" src="./screenshots_hands_on_lab/supervisor_agent/sa_2.png">
 
